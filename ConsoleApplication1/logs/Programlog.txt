@@ -1,0 +1,2 @@
+2015-11-19 18:18:43,452 [7] DEBUG SeleniumFrameworkTry1.EventHandlersClass - NewEvent
+2015-11-19 18:19:39,577 [8] INFO SeleniumFrameworkTry1.EventHandlersClass - NewEvent
