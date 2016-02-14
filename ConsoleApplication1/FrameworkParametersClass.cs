@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Reflection;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     public static class FrameworkParametersClass
     {

@@ -8,7 +8,7 @@ using System.Data.OleDb;
 using System.Xml;
 using System.Web;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     class TestClass
     {

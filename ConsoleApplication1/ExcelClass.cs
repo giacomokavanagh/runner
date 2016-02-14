@@ -10,7 +10,7 @@ using System.Web;
 
 
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     class ExcelClass
     {

@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 using OpenQA.Selenium;
 using Newtonsoft.Json;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     class EventHandlersClass
     {

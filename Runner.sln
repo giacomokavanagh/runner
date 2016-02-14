@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelKeywordFramework", "ConsoleApplication1\ExcelKeywordFramework.csproj", "{BE2F3487-2CE5-4D96-B582-9CA32D297D6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runner", "ConsoleApplication1\Runner.csproj", "{BE2F3487-2CE5-4D96-B582-9CA32D297D6E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52E273DA-699F-4135-B8B6-28D747116DDE}"
 	ProjectSection(SolutionItems) = preProject

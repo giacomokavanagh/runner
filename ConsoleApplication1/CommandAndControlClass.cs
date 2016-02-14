@@ -6,7 +6,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Net.Http;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
 
     class CommandAndControlClass

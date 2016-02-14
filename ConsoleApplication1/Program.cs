@@ -11,7 +11,7 @@ using System.Xml;
 using System.Web;
 using System.Net;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     class Program
     {

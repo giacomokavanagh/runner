@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Xml;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     class XMLClass
     {

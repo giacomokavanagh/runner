@@ -15,7 +15,7 @@ using System.Security.Permissions;
 using System.Runtime.Remoting;
 
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     class BrowserClass
     {

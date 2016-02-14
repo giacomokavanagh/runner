@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     public static class EnvironmentParametersClass
     {

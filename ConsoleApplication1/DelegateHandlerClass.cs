@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     class DelegateHandlerClass
     {

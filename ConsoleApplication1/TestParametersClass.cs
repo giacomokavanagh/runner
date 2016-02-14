@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace SeleniumFrameworkTry1
+namespace Runner
 {
     public static class TestParametersClass
     {
