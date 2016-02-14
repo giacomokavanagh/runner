@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Environment>
+  <Google>
+    <url>http://www.google.com</url>
+  </Google>
+  <BBC>
+    <url>http://www.bbc.co.uk</url>
+  </BBC>
+</Environment>

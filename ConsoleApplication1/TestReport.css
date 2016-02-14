@@ -1,0 +1,344 @@
+﻿html {
+    overflow-y: scroll;
+}
+
+body {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px;
+}
+
+a {
+    display: block;
+}
+
+#Toggle {
+    width: 100%;
+    height: 100%;
+}
+
+#StepResult {
+    float: right;
+    margin-top: -20px;
+    margin-right: 3px;
+    padding: 3px;
+}
+
+body.Passed, #Passed {
+    background-color: #f7fff7;
+}
+
+body.Blocked, #Blocked {
+    background-color: #fffece;
+}
+
+body.Failed, #Failed {
+    background-color: #ffcece;
+}
+
+div {
+    margin-bottom: 5px;
+    padding: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.panel {
+    margin-bottom: 0px;
+}
+
+div.panel-body {
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+div.panel-heading {
+    margin-top: 5px;
+}
+
+div.StepDetailsDiv {
+    width: 80%;
+}
+
+div.table {
+    display:table;
+    margin-bottom: 0px;
+}
+
+div.PropertiesTableCell {
+    display:table-cell;
+    width: 40%;
+    vertical-align: top;
+    border: solid 1px black;
+}
+
+div.ScreenshotCell {
+    display:table-cell;
+    width: 60%;
+    padding: 5px;
+    vertical-align: top;
+    text-align: center;
+    align-content: center;
+}
+
+div.TestResultsContainer {
+    display: inline-block;
+}
+
+div.TestResultDiv {
+    display: inline-block;
+    float: left;
+    margin-bottom: 20px;
+}
+
+h1 {
+    background-color: #d9d9d9;
+    padding: 10px;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+h2 {
+    background-color: #d9d9d9;
+    padding: 8px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h3 {
+    background-color: #d9d9d9;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+p {
+    background-color: white;
+    padding: 6px;
+    display: inline-block;
+}
+
+#TestResult {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+img.ScreenshotMini {
+    width: 50%;
+    height: 30%;
+    border: 1px solid black;
+}
+
+table, th, td {
+    border: 1px solid black;
+    background-color: white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+table.TestReportTable {
+    width: 60%;
+    border: 1px solid black;
+}
+
+table.PropertiesTable {
+    width: 100%;
+    border: 1px solid black;
+}
+
+td {
+    text-align: left;
+    vertical-align: top;
+    padding: 4px;
+}
+
+td.TestReportTableHeader {
+    font-weight: bold;
+    font-size: 14px;
+    width: 16%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 7px;
+    background-color: #d9d9d9;
+}
+
+td.center {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+
+td.Passed, p.Passed{
+    color: #1FDA9A;
+    font-size: 16px;
+}
+
+td.Failed, p.Failed{
+    color: #DC3D24;
+    font-size: 16px;
+}
+
+td.Blocked, p.Blocked{
+    color: #E3AE57;
+    font-size: 16px;
+}
+
+p.Passed{
+    border: 1px solid #1FDA9A;
+}
+
+p.Failed{
+    border: 1px solid #DC3D24;
+}
+
+p.Blocked{
+    border: 1px solid #E3AE57;
+}
+
+
+td.Passed, td.Failed, td.Blocked {
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+td.PropertyName {
+    background-color: black;
+    color: #E3AE57;
+    width: 30%;
+}
+
+td.PropertyNamePassed {
+    background-color: black;
+    color: #1FDA9A;
+    width: 30%;
+}
+
+td.PropertyNameFailed {
+    background-color: black;
+    color: #DC3D24;
+    width: 30%;
+}
+
+td.PropertyNameBlocked {
+    background-color: black;
+    color: #E3AE57;
+    width: 30%;
+}
+
+td.PropertyValuePassed {
+    background-color: #1FDA9A;
+    color: black;
+    width: 70%;
+}
+
+td.PropertyValueFailed {
+    background-color: #DC3D24;
+    color: black;
+    width: 70%;
+}
+
+td.PropertyValueBlocked {
+    background-color: #E3AE57;
+    color: black;
+    width: 70%;
+}
+
+td.PropertiesTd {
+    width: 100%;
+    vertical-align: middle;
+}
+
+td.ExceptionHeader {
+    background-color: #DC3D24;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+tr.ExceptionDetails {
+    background-color: black;
+    color: #DC3D24;
+    font-size: 12px;
+    width: 50%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+td.ExceptionType {
+    background-color: black;
+    color: #DC3D24;
+    font-size: 12px;
+    width: 30%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+td.ExceptionDetails {
+    background-color: black;
+    color: #DC3D24;
+    font-size: 12px;
+    width: 70%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+hr {
+    width: 100%;
+}
+
+div.Passed {
+    border-color: #1FDA9A;
+}
+
+div.Blocked {
+    border-color: #E3AE57;
+}
+
+div.Failed {
+    border-color: #DC3D24;
+}
+
+div.panel-heading {
+    padding: 10px, 15px;
+}
+
+div.panel.panel-default.Passed {
+    border-top-color: #1FDA9A;
+}
+
+div.panel.panel-default.Blocked {
+    border-top-color: #E3AE57;
+}
+
+div.panel.panel-default.Failed {
+    border-top-color: #DC3D24;
+}
+
+div.panel-group {
+    margin-bottom: 0px;
+}
+
+div.panel-collapse {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+div.panel-default {
+    padding: 0px;
+}
+

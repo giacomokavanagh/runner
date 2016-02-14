@@ -107,6 +107,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="ExcelKeywordFramework.psproj" />
+    <None Include="gpl-3.0.docx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -142,9 +143,11 @@
     <Content Include="chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Environment.xml" />
     <Content Include="IEDriverServer.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestReport.css" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
