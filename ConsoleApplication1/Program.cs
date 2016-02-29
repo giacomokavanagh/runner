@@ -26,7 +26,7 @@ namespace Runner
 
             commandClass.hndRetrieveEnvironmentFile.addHandlers(new string[] { "logFrameworkDebugEvent",
                 "logAllStoredExceptionEventsToFramework", "quitFrameworkOnException" });
-            commandClass.hndRetrieveEnvironmentFile.addHandlers(new string[] { "logFrameworkDebugEvent",
+            commandClass.hndRetrieveTestDataFile.addHandlers(new string[] { "logFrameworkDebugEvent",
                 "logAllStoredExceptionEventsToFramework", "quitFrameworkOnException" });
             commandClass.hndReportResultsFromProgram.addHandlers(new string[] { "logFrameworkDebugEvent",
                 "logAllStoredExceptionEventsToFramework", "quitFrameworkOnException" });
@@ -41,9 +41,9 @@ namespace Runner
             }
 
             commandClass.retrieveEnvironmentFile();
-            
+
             //Don't really need to subdivide environments if you can select a file that is specific to environments
-            //EnvironmentParametersClass.SetdtEnvironment(row["ENVIRONMENT"].ToString());
+            var testy = EnvironmentParametersClass.dsEnvironment;
 
             TestParametersClass.setTestVariables();
             TestParametersClass.setTestDataFolderAndPath(TestParametersClass.TestID.ToString());

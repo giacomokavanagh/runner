@@ -77,7 +77,7 @@ namespace Runner
         public void setDelegateClass(string InputClass)
         {
             //Make input class a usable object
-            tInputClass_ = TypeDelegator.GetType("SeleniumFrameworkTry1." + InputClass);
+            tInputClass_ = TypeDelegator.GetType("Runner." + InputClass);
         }
 
         public string findMethodNameInClassAndFixCaseErrors(string MethodInfo)

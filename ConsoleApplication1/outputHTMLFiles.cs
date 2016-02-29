@@ -228,8 +228,8 @@ namespace Runner
                 sw.WriteLine("            <td class='TestReportTableHeader'>Steps blocked</td>");
                 sw.WriteLine("            <td class='TestReportTableHeader'>Time started</td>");
                 sw.WriteLine("            <td class='TestReportTableHeader'>Time ended</td>");
-                sw.WriteLine("            <td class='TestReportTableHeader'>Test duration</td>");
                 sw.WriteLine("            <td class='TestReportTableHeader'>Browser</td>");
+                sw.WriteLine("            <td class='TestReportTableHeader'>Test duration</td>");
                 sw.WriteLine("          </tr>");
                 sw.WriteLine("          <tr>");
                 sw.WriteLine("            <td class='Passed'>Steps passed not available</td>");
@@ -237,8 +237,8 @@ namespace Runner
                 sw.WriteLine("            <td class='Blocked'>Steps blocked not available</td>");
                 sw.WriteLine("            <td class='center'>" + TestParametersClass.strStartTime + "</td>");
                 sw.WriteLine("            <td class='center'>Time ended not available</td>");
-                sw.WriteLine("            <td class='center'>Test duration not available</td>");
                 sw.WriteLine("            <td class='center'>" + TestParametersClass.Browser + "</td>");
+                sw.WriteLine("            <td class='center'>Test duration not available</td>");
                 sw.WriteLine("        </table>");
                 sw.WriteLine("      </div>");
                 sw.WriteLine("    </div>");
@@ -278,8 +278,8 @@ namespace Runner
             sw.WriteLine("            <td class='TestReportTableHeader'>Steps blocked</td>");
             sw.WriteLine("            <td class='TestReportTableHeader'>Time started</td>");
             sw.WriteLine("            <td class='TestReportTableHeader'>Time ended</td>");
-            sw.WriteLine("            <td class='TestReportTableHeader'>Test duration</td>");
             sw.WriteLine("            <td class='TestReportTableHeader'>Browser</td>");
+            sw.WriteLine("            <td class='TestReportTableHeader'>Test duration</td>");
             sw.WriteLine("          </tr>");
             sw.WriteLine("          <tr>");
             sw.WriteLine("            <td class='Passed'>" + TestParametersClass.StepsPassed + "</td>");
@@ -380,10 +380,10 @@ namespace Runner
             sw.WriteLine("    <TABLE>");
             sw.WriteLine("      <TR class='ExceptionDetails'>");
             sw.WriteLine("        <TD class='ExceptionType'>Error Type</TD>");
-            sw.WriteLine("        <TD class='ExceptionMessage'>Error Message</TD>");
+            sw.WriteLine("        <TD class='ExceptionMessage'>" + ExceptionType + "</TD>");
             sw.WriteLine("      </TR>");
             sw.WriteLine("      <TR class='ExceptionDetails'>");
-            sw.WriteLine("        <TD class='ExceptionType'>" + ExceptionType + "</TD>");
+            sw.WriteLine("        <TD class='ExceptionType'>Error Message</TD>");
             sw.WriteLine("        <TD class='ExceptionMessage'>" + ExceptionMessage + "</TD>");
             sw.WriteLine("      </TR>");
             sw.WriteLine("    </TABLE>");

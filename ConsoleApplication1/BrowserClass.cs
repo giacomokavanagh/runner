@@ -95,7 +95,20 @@ namespace Runner
                 ExceptionClass.addTestExceptionToList(exception);
             }
         }
-        
+
+        public static void NavigateToEnvironmentURL()
+        {
+            try
+            {
+                driver.Navigate().GoToUrl(EnvironmentParametersClass.dsEnvironment.Tables[0].Rows[0]["url"].ToString());
+            }
+            catch (Exception exception)
+            {
+                ExceptionClass.addTestExceptionToList(exception);
+            }
+        }
+
+
         public static void Click(object[] oInputParameters)
         {
             string strAttribute = oInputParameters[0].ToString();

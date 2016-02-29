@@ -33,11 +33,11 @@ namespace Runner
             HostAddress = Environment.GetEnvironmentVariable("AF_HOST_ADDRESS");
 
             //This will reset in CommandAndControlClass
-            UseControlDB = true;
-            if (UseControlDB)
-            {
-                ControlDB = Environment.GetEnvironmentVariable("AF_CONTROL_DB");
-            }
+            //UseControlDB = true;
+            //if (UseControlDB)
+            //{
+            //    ControlDB = Environment.GetEnvironmentVariable("AF_CONTROL_DB");
+            //}
 
             //This is the list of all the classes that involve input and whose methods can be used by a user through the input method
             InputClasses = new string[] { "BrowserClass" };
