@@ -114,6 +114,7 @@ namespace Runner
                         Browser_ = comParams.Browser;
                         TestParametersClass.Browser = Browser_;
                         FrameworkParametersClass.ClearFrameworkLog = comParams.ClearRemoteLogOnNextAccess;
+                        FrameworkParametersClass.TakeScreenshots = comParams.TakeScreenshots;
 
                         FrameworkParametersClass.SetEnvironmentXMLPath(comParams.TestEnvironmentFilename);
                     }
@@ -147,7 +148,8 @@ namespace Runner
                 HostAddress_ = FrameworkParametersClass.HostAddress;
                 TestEnvironmentID_ = TestParametersClass.TestEnvironmentID;
                 XMLPath_ = FrameworkParametersClass.XMLPath;
-                RequestAddress_ = HostAddress_ + "TestEnvironments/ReturnTestEnvironmentsFile/?id=" + TestEnvironmentID_.ToString();
+                RequestAddress_ = HostAddress_ + "TestEnvironments/ReturnExternalTestEnvironmentsFile/?id=" + TestEnvironmentID_.ToString()
+                    + "&Key=" + FrameworkParametersClass.Key + "&RobotName=" + FrameworkParametersClass.MachineName;
 
                 client.DownloadFile(RequestAddress_, XMLPath_);
             }
@@ -173,7 +175,8 @@ namespace Runner
                 HostAddress_ = FrameworkParametersClass.HostAddress;
                 TestID_ = TestParametersClass.TestID;
                 TestDataPath_ = TestParametersClass.TestDataPath;
-                RequestAddress_ = HostAddress_ + "Tests/ReturnTestFile/?id=" + TestID_.ToString();
+                RequestAddress_ = HostAddress_ + "Tests/ReturnExternalTestFile/?id=" + TestID_.ToString()
+                    + "&Key=" + FrameworkParametersClass.Key + "&RobotName=" + FrameworkParametersClass.MachineName;
 
                 client.DownloadFile(RequestAddress_, TestDataPath_);
             }
