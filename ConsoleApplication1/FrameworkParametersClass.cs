@@ -13,15 +13,17 @@ namespace Runner
     public static class FrameworkParametersClass
     {
         public static readonly string ProjectRootFolder, TestsFolder, ResultsFolder, LogFolder, CommandExcelPath,
-            MachineName, ControlDB, FrameworkLogPath, RuntimeCSSPath, HostAddress, EnvironmentsFolder;
+            MachineName, ControlDB, FrameworkLogPath, RuntimeCSSPath, HostAddress, EnvironmentsFolder, 
+            Key;
         public static readonly string[] InputClasses;
         public static readonly bool UseControlDB;
         public static string XMLPath;
-        public static bool ClearFrameworkLog;
+        public static bool ClearFrameworkLog, TakeScreenshots;
 
         static FrameworkParametersClass()
         {
             ProjectRootFolder = Environment.GetEnvironmentVariable("AF_FRAMEWORK_ROOT_PATH");
+            Key = Environment.GetEnvironmentVariable("AF_KEY");
             TestsFolder = Path.Combine(ProjectRootFolder, "Tests");
             ResultsFolder = Path.Combine(ProjectRootFolder, "Results");
             LogFolder = Path.Combine(ProjectRootFolder, "Log");

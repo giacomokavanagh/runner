@@ -84,7 +84,8 @@ namespace Runner
             HostAddress_ = FrameworkParametersClass.HostAddress;
             MachineName_ = FrameworkParametersClass.MachineName;
 
-            GetTestRun = WebRequest.Create(HostAddress_ + "TestRunners/GetTestRunParametersForRobot/?RobotName=" + MachineName_);
+            GetTestRun = WebRequest.Create(HostAddress_ + "TestRunners/GetTestRunParametersForRobot/?RobotName=" + MachineName_ 
+                + "&Key=" + FrameworkParametersClass.Key);
 
             Stream TestRunResponse;
             try
@@ -188,7 +189,8 @@ namespace Runner
         {
             HostAddress_ = FrameworkParametersClass.HostAddress;
             TestRunID_ = TestParametersClass.TestRunID;
-            RequestAddress_ = HostAddress_ + "TestRunners/UploadResult/?id=" + TestRunID_.ToString();
+            RequestAddress_ = HostAddress_ + "TestRunners/UploadResult/?id=" + TestRunID_.ToString() 
+                + "&Key=" + FrameworkParametersClass.Key;
 
             ListOfScreenshotDetailsJSON_ = JsonConvert.SerializeObject(TestParametersClass.ListOfScreenshotDetails);
             var ListOfScreenshots = TestParametersClass.ListOfScreenshotDetails;
@@ -276,7 +278,7 @@ namespace Runner
             WebRequest webRequest;
 
             webRequest = WebRequest.Create(HostAddress + "TestRunners/FinaliseTestRun/?id=" + strTestID
-                + "&status=" + TestStatus + "&endTime=" + EndTime);
+                + "&Key=" + FrameworkParametersClass.Key + "&status=" + TestStatus + "&endTime=" + EndTime);
 
             webRequest.GetResponse();
         }
@@ -292,5 +294,6 @@ namespace Runner
         public string TestEnvironmentFilename { get; set; }
         public string Browser { get; set; }
         public bool ClearRemoteLogOnNextAccess { get; set; }
+        public bool TakeScreenshots { get; set; }
     }
 }

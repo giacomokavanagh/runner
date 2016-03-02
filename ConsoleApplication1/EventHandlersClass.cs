@@ -214,7 +214,7 @@ namespace Runner
                 TestParametersClass.strEndTime = StringClass.removeZFromEndOfString(DateTime.Now.ToString("u"));
 
                 var RequestAddress = FrameworkParametersClass.HostAddress + "TestRunners/UploadResult/?id="
-                    + TestParametersClass.TestRunID.ToString();
+                    + TestParametersClass.TestRunID.ToString() + "&Key=" + FrameworkParametersClass.Key;
 
                 var ListOfScreenshotDetailsJSON = JsonConvert.SerializeObject(TestParametersClass.ListOfScreenshotDetails);
 

@@ -53,12 +53,26 @@ namespace Runner
         public void IterateThroughTestRows()
         {
             StepClass stepClass = new StepClass();
-            stepClass.hndExecuteStep.addHandlers(new string[] { "TakeScreenshot", "failTestOnException", "failOrPassStepOnExceptionOrNot", "raiseQuitTestOnException",
+            
+            if (FrameworkParametersClass.TakeScreenshots)
+            {
+                stepClass.hndExecuteStep.addHandlers(new string[] { "TakeScreenshot", "failTestOnException", "failOrPassStepOnExceptionOrNot", "raiseQuitTestOnException",
                 "blockTestOnQuitTestException", "blockStepOnQuitTestException", "logStepEventToTest", "logAllStoredExceptionEventsToTest",
                 "logAllStoredExceptionEventsToStepDetailsExceptionList", "logQuitTestExceptionToTest", "logQuitTestExceptionToStepDetails"
                 , "incrementStepsResultsCounterWithStepResult", "addCurrentStepStatusToCurrentStepDetails",
                 "addCurrentStepDetailsToListOfTestStepDetails",
                  "resetCurrentStepDetails" });
+            }
+            else
+            {
+                stepClass.hndExecuteStep.addHandlers(new string[] { "failTestOnException", "failOrPassStepOnExceptionOrNot", "raiseQuitTestOnException",
+                "blockTestOnQuitTestException", "blockStepOnQuitTestException", "logStepEventToTest", "logAllStoredExceptionEventsToTest",
+                "logAllStoredExceptionEventsToStepDetailsExceptionList", "logQuitTestExceptionToTest", "logQuitTestExceptionToStepDetails"
+                , "incrementStepsResultsCounterWithStepResult", "addCurrentStepStatusToCurrentStepDetails",
+                "addCurrentStepDetailsToListOfTestStepDetails",
+                 "resetCurrentStepDetails" });
+            }
+            
 
             //Switch the default exception reporting over to the test until it is finished
             ExceptionClass.RaiseFrameworkException = false;
