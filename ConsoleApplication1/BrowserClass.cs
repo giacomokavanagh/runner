@@ -111,11 +111,10 @@ namespace Runner
 
         public static void Click(object[] oInputParameters)
         {
-            string strAttribute = oInputParameters[0].ToString();
             string strValue = oInputParameters[1].ToString();
             try
             {
-                findWeblement(strAttribute, strValue).Click();
+                findWeblement(strValue).Click();
             }
             catch (Exception exception)
             {
@@ -125,11 +124,10 @@ namespace Runner
 
         public static void Clear(object[] oInputParameters)
         {
-            string strAttribute = oInputParameters[0].ToString();
             string strValue = oInputParameters[1].ToString();
             try
             {
-                findWeblement(strAttribute, strValue).Clear();
+                findWeblement(strValue).Clear();
             }
             catch (Exception exception)
             {
@@ -139,14 +137,13 @@ namespace Runner
 
         public static void Set(object[] oInputParameters)
         {
-            string strAttribute = oInputParameters[0].ToString();
             string strValue = oInputParameters[1].ToString();
             string strInput = oInputParameters[2].ToString();
             IWebElement webElement = null;
 
             try
             {
-                webElement = findWeblement(strAttribute, strValue);
+                webElement = findWeblement(strValue);
             }
             catch (Exception exception)
             {
@@ -159,7 +156,7 @@ namespace Runner
             }
             else if (webElement.TagName.ToUpper() == "SELECT")
             {
-                Select(strAttribute, strValue, strInput, webElement);
+                Select(strValue, strInput, webElement);
             }
             else
             {
@@ -167,7 +164,7 @@ namespace Runner
             }
         }
 
-        private static void Select(string strAttribute, string strValue, string strInput, IWebElement webElement)
+        private static void Select(string strValue, string strInput, IWebElement webElement)
         {
             bool blnSelectElementFound = false;
 
@@ -208,26 +205,135 @@ namespace Runner
             }
         }
 
-        public static IWebElement findWeblement(string strAttribute, string strValue)
+        public static void Check(object[] oInputParameters)
+        {
+            IWebElement webElement = null;
+            string strAttribute = oInputParameters[0].ToString();
+            string strValue = oInputParameters[1].ToString();
+            string strInput = oInputParameters[2].ToString();
+            try
+            {
+                webElement = findWeblement(strValue);
+            }
+            catch (Exception exception)
+            {
+                ExceptionClass.addTestExceptionToList(new Exception("I couldn't check that object, because I couldnt find it"));
+            }
+
+            if(strAttribute.ToUpper() == "TEXT")
+            {
+                if(webElement.Text != strInput)
+                {
+                    TestParametersClass.CurrentStepDetails.StepStatus = "Failed";
+                }
+            }
+            else if(strAttribute.ToUpper() == "TAGNAME")
+            {
+                if(webElement.TagName != strInput)
+                {
+                    TestParametersClass.CurrentStepDetails.StepStatus = "Failed";
+                }
+            }
+            else
+            {
+                if (webElement.GetAttribute(strAttribute) != strInput)
+                {
+                    TestParametersClass.CurrentStepDetails.StepStatus = "Failed";
+                }
+            }
+        }
+
+        public static void Wait(object[] oInputParameters)
+        {
+            int waitTime;
+            string strInput = oInputParameters[2].ToString();
+            try
+            {
+                waitTime = Convert.ToInt32(strInput);
+                System.Threading.Thread.Sleep(waitTime);
+            }
+            catch(Exception exception)
+            {
+                ExceptionClass.addTestExceptionToList(new Exception("I couldn't convert that wait to a number: " + strInput));
+            }
+        }
+
+        public static void WaitFor(object[] oInputParameters)
+        {
+            IWebElement webElement = null;
+            int waitTime = 120;
+            string strAttribute = oInputParameters[0].ToString();
+            string strValue = oInputParameters[1].ToString();
+            string strInput = oInputParameters[2].ToString();
+
+            try
+            {
+                waitTime = Convert.ToInt32(strInput);
+            }
+            catch (Exception exception)
+            {
+                ExceptionClass.addTestExceptionToList(new Exception("I couldn't convert that wait to a number: " + strInput));
+            }
+
+            try
+            {
+                new WebDriverWait(driver, TimeSpan.FromSeconds(waitTime)).Until(ExpectedConditions.ElementExists
+                    (findBy(strAttribute, strValue)));
+            }
+            catch (Exception exception)
+            {
+                ExceptionClass.addTestExceptionToList(new Exception("I couldn't wait for that object, because I couldnt find it"));
+            }
+        }
+
+        public static By findBy(string strAttribute, string strValue)
+        {
+            if(strAttribute.ToUpper() == "ID")
+            {
+                return By.Id(strValue);
+            }
+            else if(strAttribute.ToUpper() == "CLASSNAME")
+            {
+                return By.ClassName(strValue);
+            }
+            else if(strAttribute.ToUpper() == "CSSSELECTOR")
+            {
+                return By.CssSelector(strValue);
+            }
+            else if(strAttribute.ToUpper() == "TAGNAME")
+            {
+                return By.TagName(strValue);
+            }
+            else if (strAttribute.ToUpper() == "XPATH")
+            {
+                return By.XPath(strValue);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static IWebElement findWeblement(string strValue)
         {
             IWebElement webElement = null;
             
             bool blnObjectFound = false;
-            if (strAttribute != "" & strValue != "")
-            {
-                try
-                {
-                    webElement = FindElementByXPathAttributeAndValue(strAttribute, strValue);
-                    if (!Object.Equals(webElement, null))
-                    {
-                        blnObjectFound = true;
-                    }
-                }
-                catch (Exception exception)
-                {
+            //if (strAttribute != "" & strValue != "")
+            //{
+            //    try
+            //    {
+            //        webElement = FindElementByXPathAttributeAndValue(strAttribute, strValue);
+            //        if (!Object.Equals(webElement, null))
+            //        {
+            //            blnObjectFound = true;
+            //        }
+            //    }
+            //    catch (Exception exception)
+            //    {
                     //Not found here
-                }
-            }
+            //    }
+            //}
 
             //If that hasn't worked, try all the other options one by one until one succeeds
             if (!blnObjectFound)
@@ -274,8 +380,8 @@ namespace Runner
                 }
                 catch (Exception exception)
                 {
-                    ExceptionClass.addTestExceptionToList(new Exception("I couldn't find the object on the page, using Attribute <" + strAttribute
-                            + "> Value <" + strValue + ">"));
+                    ExceptionClass.addTestExceptionToList(new Exception("I couldn't find the object on the page, using Value <" 
+                        + strValue + ">"));
                 }
             }
 
@@ -410,11 +516,6 @@ namespace Runner
                 oInputParameters[i] = obj;
                 i++;
             }
-        }
-
-        private static void quit(object[] oInputParameters)
-        {
-            
         }
     }
 }

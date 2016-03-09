@@ -23,7 +23,7 @@ namespace Runner
         private int TestRunID_, TestID_, TestEnvironmentID_;
         private string TestName_, TestDataFilename_, Browser_, EnvironmentsFolder_, XMLPath_, HostAddress_, RequestAddress_,
             TestDataPath_, ListOfScreenshotDetailsJSON_, MachineName_, TestStatus_, EndTime_, TestBeingRunReportFile_,
-            ListOfStepDetailsJSON_;
+            ListOfStepDetailsJSON_, SerializedAvailableMethods_;
         private bool UseDB_, TestReady_;
         private Dictionary<string, string> Properties_;
 
@@ -51,6 +51,7 @@ namespace Runner
                 Properties_.Add("TestStatus", TestStatus_);
                 Properties_.Add("EndTime", EndTime_);
                 Properties_.Add("TestBeingRunReportFile", TestBeingRunReportFile_);
+                Properties_.Add("SerializedAvailableMethods", SerializedAvailableMethods_);
                 return Properties_;
             }
         }
@@ -237,7 +238,7 @@ namespace Runner
 
                 formData.Add(httpContentSerializedListOfScreenshotDetails, ScreenshotDetailsListName);
 
-                foreach(var screenshot in ListOfScreenshots)
+                foreach (var screenshot in ListOfScreenshots)
                 {
                     var byteArrayScreenshot = File.ReadAllBytes(screenshot.ScreenshotFilePath);
 
@@ -298,5 +299,10 @@ namespace Runner
         public string Browser { get; set; }
         public bool ClearRemoteLogOnNextAccess { get; set; }
         public bool TakeScreenshots { get; set; }
+    }
+
+    public class AvailableMethods
+    {
+        public string[] Methods { get; set; }
     }
 }
